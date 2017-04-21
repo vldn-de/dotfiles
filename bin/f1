@@ -1,0 +1,3 @@
+#!/bin/bash
+sox /home/sven/misc/fsound/f1.mp3 -d
+

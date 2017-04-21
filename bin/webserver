@@ -1,0 +1,3 @@
+#!/bin/bash
+cd /home/sven/dev/swingbird/
+python -m http.server 8000

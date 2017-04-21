@@ -1,0 +1,9 @@
+#!/bin/bash
+#diff -u dwm_orig.c dwm_vldn.c > dwm_vldn.diff
+#diff -u config.h config_vldn.h > config_vldn.diff
+makepkg -g >> PKGBUILD
+rm -Rf src
+rm -Rf pkg
+rm -Rf *tar.xz
+#makepkg -efi
+makepkg -i

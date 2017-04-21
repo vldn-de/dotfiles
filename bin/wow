@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#wine /win/Program\ Files\ \(x86\)/Heroes\ of\ the\ Storm/Support64/HeroesSwitcher_x64.exe;
+playonlinux --run "WoW"
+#wine /home/sven/win/Heroes\ of\ the\ Storm/Support64/HeroesSwitcher_x64.exe -opengl;
+
+#wineserver --wait;
+#sleep 2;
+#killwine & xrandr --size 1366x768

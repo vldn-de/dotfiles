@@ -1,0 +1,50 @@
+search rsync
+rename dump
+sudo delete
+shell sudo rm 
+shell -p xterm
+shell -p urxvt
+shell -p 
+search knecht
+search .config
+shell mv user-dirs.dirs_ user-dirs.dirs
+search ICC
+search iPhone
+search Updater
+search taiga
+search Multi
+search NH
+search Gothic
+search OCr
+search ocr
+search png
+search GG So
+shell mkdir f1-f6
+shell mkdir fsound
+shell mv GG\ Sound\ Effect.mp3 f1.mp3
+search questie
+shell mv 
+search Vanilla
+search wow
+open_with vim
+open_with 
+shell rm -Rf Uebersicht.txt
+shell cp /home/sven/Uebersicht.txt /home/sven/job/DH/cloud/Uebersicht.txt
+search montse
+search 
+search download
+delete
+search Bus
+search i
+search intrepi
+search the_bo
+search fonts
+shell mkdir Leonardo
+nt
+vs
+search dls
+search the_bold
+search thebol
+search font
+search DECL
+search Zhavas

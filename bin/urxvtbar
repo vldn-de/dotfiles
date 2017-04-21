@@ -1,0 +1,40 @@
+#!/bin/bash
+
+BAR_BORDER_COLOR=404040
+
+if [ "$1" == "start" ]; then
+	bspc rule -a urxvt -o floating=on,sticky=on,locked=on,focus=off,manage=off
+	# original width 230 characters
+	urxvt -bd \#282828 -cr \#282828 -geometry 230x1+32+30 +b -b 5 -w 3 -e "$0"
+	# Size 22
+	# urxvt -bd \#282828 -cr \#282828 -geometry 167x1+32+30 +b -b 5 -w 3 -e "$0"
+else
+	trap "" SIGINT SIGTERM
+
+	# Set up colors
+	tput initc 7 500 500 500
+	tput initc 15 900 900 900
+
+	# Set our outer border color with wmutils.
+	# Loop through windows on screen and find first occurance of urxvt-bar.
+	# Note that this will set the color of _every_ window with that name, unless
+	# we change this to use PIDs, which would require more work. So whatever.
+	lsw | while read ID; do
+		if [ "$(wname $ID)" == "urxvt-bar" ]; then
+			chwb -c $BAR_BORDER_COLOR $ID
+		fi
+	done
+
+	# Disable echo
+	stty -echo
+	while true; do
+		bspc_status=$(bspc control --get-status | ~/bar/bspwm-indicator.py)
+		bspc_status_pad=$(echo $bspc_status | sed -r "s/\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K]//g")
+		bspc_status_pad=$(expr $(expr $(tput cols) / 2) - $(expr ${#bspc_status_pad} / 2))
+		printf "\r%$(tput cols)s" "$(date)"
+		printf "\r%${bspc_status_pad}s%s" "" "$bspc_status"
+		printf '\e[0m'
+		printf "\r%s" "$(acpi)"
+		sleep 0.5
+	done
+fi

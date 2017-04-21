@@ -1,0 +1,15 @@
+#!/bin/sh
+# This shell script is PUBLIC DOMAIN. You may do whatever you want with it.
+
+TOGGLE=$HOME/.screentoggle
+
+if [ ! -e $TOGGLE ]; then
+    touch $TOGGLE
+xrandr --output HDMI-0 --auto --above LVDS
+
+else
+    rm $TOGGLE
+    xrandr --output HDMI-0 --off
+fi
+
+

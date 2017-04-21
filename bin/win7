@@ -1,0 +1,13 @@
+#!/bin/bash
+export SDL_VIDEO_X11_DGAMOUSE=0
+qemu-system-x86_64 -enable-kvm \
+-cpu host,hv_relaxed,hv_spinlocks=0x1fff,hv_vapic,hv_time -smp 4 \
+-drive file=/home/sven/dump/qemu/win7.raw,cache=none \
+-m 4024 \
+-net nic -net user,smb=/home/sven/ \
+-vga qxl \
+-usbdevice tablet \
+-display gtk,gl=on \
+#spice port=5900,addr=127.0.0.1,disable-ticketing  & spicy -h 127.0.0.1 -p 5900 && fg
+#global virtio-vga.vram_size=5120000 \
+#spicy -h 127.0.0.1 -p 5900 && fg

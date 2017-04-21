@@ -1,0 +1,15 @@
+#!/bin/bash
+
+## Wine can spam stderr
+ERRLOG=/tmp/dllerrlog.log
+
+WINESYSDIR=$( winepath -u c:\\windows\\system32 2> $ERRLOG )    
+if [[ ${WINESYSDIR} == *"/system32" ]]; then
+  echo "Prefix is 32 bit"
+  # do 32 bit stuff here...
+elif [[ ${WINESYSDIR} == *"/syswow64"* ]]; then
+  echo "Prefix is 64 bit"
+  # do 64 bit stuff here...
+else
+  echo "Unknown wine architecture"
+fi

@@ -1,0 +1,3 @@
+#!/bin/bash
+sudo runuser -l sven -c "mkdir /home/sven/knecht"
+sudo runuser -l sven -c "sshfs sven@192.168.1.82:/home/sven/ /home/sven/knecht -o idmap=user -o uid=1000 -o gid=1000"

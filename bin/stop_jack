@@ -1,0 +1,4 @@
+#!/bin/bash
+killall qjackctl
+jack_control exit
+killall a2jmidid

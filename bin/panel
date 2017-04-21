@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# SETTINGS
+FONT="-*-terminus-medium-r-normal-*-12-*-*-*-*-*-iso10646-*"
+RES="1366x14"
+BG="#080608"
+FG="#E8EAEC"
+BLK="#525252"
+RED="#A35656"
+GRN="#A3A356"
+YLW="#DD7733"
+BLU="#567DA3"
+MAG="#908C9C"
+CYN="#56A3A3"
+BYLW="#EECC55"
+Monitors=$(xrandr | grep -o "^.* connected" | sed "s/ connected//")
+function statusbar {
+function desk() {
+CUR=$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}')
+case $CUR in
+	0) echo "I";;
+	1) echo "II";;
+	2) echo "%{F$BYLW}  %{F-}%{F$BYLW}  %{F-}%{F$RED}%{R}  %{R}%{F-}";;
+	*) echo ""
+esac
+}
+
+function life() {
+bat=$(cat /sys/class/power_supply/BAT0/capacity)
+echo %{F$GRN}%{R}  %{R} $bat %{F-}
+}
+
+function clock() {
+time=$(date "+%a %d %b %R")
+echo %{F$MAG}%{R}  %{R} $time %{F-}
+}
+
+echo "$(desk)%{r}$(life)$(clock) "
+}
+while :; do
+echo $(statusbar)
+sleep 0.1
+done | lemonbar -f ${FONT} -g ${RES} -B ${BG} -F ${FG} &

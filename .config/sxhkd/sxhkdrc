@@ -1,0 +1,55 @@
+#
+# wm independent hotkeys
+#
+super + l
+ slock
+ctrl + alt + Delete
+ urxvtc -e htop
+
+XF86MonBrightnessUp
+    xbacklight -inc 10
+
+XF86MonBrightnessDown
+    xbacklight -dec 10
+
+XF86AudioMute
+ volmute
+XF86AudioRaiseVolume
+  volup
+XF86AudioLowerVolume
+  voldown
+XF86TouchpadToggle
+ touchpad
+XF86Launch1
+ powersave
+Print
+ screenshot
+
+super + Return
+	urxvtc
+
+super + r
+	dmenu_run -fn Terminus:size=8 -nb '#181818' -nf '#839191' -sb '#181818' -sf '#DADADA'
+
+super + Escape
+	pkill -USR1 -x sxhkd
+
+super + alt + Escape
+	bspc quit
+
+super + {_,shift + }q
+	bspc node -{c,k}
+super + a
+	bspc node -t {floating,tiled}
+super + m
+ bspc node -t {fullscreen,tiled}
+
+super + {_,shift + }{1-5}
+	bspc {desktop -f,node -d} '{I,II,III,IV,V}'
+
+super + f
+    pcmanfm
+super + c 
+    chromium
+
+

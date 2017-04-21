@@ -1,0 +1,3 @@
+#!/bin/bash
+NAME=$(date +%Y%m%d%k%M%S)
+import /home/sven/dls/screens/$NAME.png

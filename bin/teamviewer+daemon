@@ -1,0 +1,5 @@
+#!/bin/bash
+teamviewer --daemon start
+teamviewer; 
+while ps axg | grep -vw grep | grep -w TeamViewer.exe > /dev/null; do sleep 1; done
+teamviewer --daemon stop

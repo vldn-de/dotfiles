@@ -1,0 +1,8 @@
+#!/bin/bash
+
+mountpoint /home/sven/knecht
+if [ $? -eq 0 ] ; then
+echo "Mounted, Please do not delete!!"
+else
+rm -Rf /home/sven/knecht
+fi

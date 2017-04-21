@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo runuser -l sven -c "sshfs root@vldn.de:/www/nextcloud/data/root/files/ /home/sven/cloud -o idmap=user -o uid=1000 -o gid=1000"

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+param=
+while [ "$1" ]
+do
+  param="$param Z:$1"
+  shift
+done
+playonlinux --run "Photoshop CS6" $param
